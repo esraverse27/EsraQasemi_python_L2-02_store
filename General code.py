@@ -119,7 +119,8 @@ while True :
                         print("1. add item to cart")
                         print("2. remove item from cart")
                         print("3. view cart")
-                        print("4. return to main menu")
+                        print("4. checkout")
+                        print("5. return to main menu")
                         task = int(input("Enter the number of your choise: "))
                         print("")
                     except TypeError:
@@ -134,7 +135,7 @@ while True :
                                 item_name = input("enter the product name: ")
                                 quantity = int(input("enter the quantity: "))
                                 cart.add_to_cart(item_name, quantity, my_store)
-                                print(f"{item_name} added to cart successfuly.")
+                                print(f"{item_name} was added to cart successfuly.")
                                 print("")
                             except TypeError:
                                 print("enter a valid number as quantity")
@@ -149,8 +150,11 @@ while True :
                         case 3:
                             cart.view_items()
 
-                    #to go back to main menu
                         case 4:
+                            cart.Checkout()
+
+                    #to go back to main menu
+                        case 5:
                             user.user_logout()
                             user.is_logged_in = False
                             break

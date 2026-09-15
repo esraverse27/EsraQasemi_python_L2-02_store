@@ -99,7 +99,7 @@ class cart:
                                         print("{product_name} was added to cart successfuly")
                                         return
                         except:
-                            print("Sorry, the product inventory is not enough")
+                            print("Sorry, the product is out of stock")
                 
                 #when the product doesn't exist in cart and we have to creat an object for it      
                 else: 
@@ -141,14 +141,18 @@ class cart:
         for user in User.users_list:
             if user.is_logged_in: 
                 if user.cart_items:
+                    print("--cart--")
                     self.view_items()
                     confirm = input("Are you sure you want to chechout? (y/n)")
 
                     if confirm.lower() != "y" :
                         print("checkout cancelled!")
+                        print("")
                         return
 
                     else:
-                        user.cart_item.clear()
+                        user.cart_items.clear()
                         print("Thanks for shopping:)")
+                else:
+                    print("cart is empty")
 
